@@ -478,6 +478,6 @@ echo _gettext("Go");
 
     public function getSourceContext()
     {
-        return new Source("", "database/operations/index.twig", "C:\\Users\\PC\\Herd\\phpMyAdmin\\templates\\database\\operations\\index.twig");
+        return new Source("", "database/operations/index.twig", "D:\\Herd\\phpmyadmin\\templates\\database\\operations\\index.twig");
     }
 }

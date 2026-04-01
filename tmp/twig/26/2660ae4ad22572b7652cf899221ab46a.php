@@ -252,7 +252,7 @@ echo _gettext("Server choice:");
         }
         // line 107
         echo "    </div>
-    <div class=\"card-footer\">
+    <div class=\"card-footer text-end\">
       ";
         // line 109
         if (($context["has_captcha"] ?? null)) {
@@ -353,6 +353,6 @@ echo _gettext("Log in");
 
     public function getSourceContext()
     {
-        return new Source("", "login/form.twig", "C:\\Users\\PC\\Herd\\phpMyAdmin\\templates\\login\\form.twig");
+        return new Source("", "login/form.twig", "D:\\Herd\\phpmyadmin\\templates\\login\\form.twig");
     }
 }

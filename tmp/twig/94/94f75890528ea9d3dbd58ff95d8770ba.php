@@ -546,6 +546,6 @@ echo _gettext("Import");
 
     public function getSourceContext()
     {
-        return new Source("", "import.twig", "C:\\Users\\PC\\Herd\\phpMyAdmin\\templates\\import.twig");
+        return new Source("", "import.twig", "D:\\Herd\\phpmyadmin\\templates\\import.twig");
     }
 }

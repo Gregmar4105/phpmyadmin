@@ -62,6 +62,6 @@ class __TwigTemplate_cfa9faa7c3bc033636c7f1a4cc609e00 extends Template
 
     public function getSourceContext()
     {
-        return new Source("", "javascript/redirect.twig", "C:\\Users\\PC\\Herd\\phpMyAdmin\\templates\\javascript\\redirect.twig");
+        return new Source("", "javascript/redirect.twig", "D:\\Herd\\phpmyadmin\\templates\\javascript\\redirect.twig");
     }
 }

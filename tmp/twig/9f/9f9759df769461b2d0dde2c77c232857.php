@@ -294,6 +294,6 @@ class __TwigTemplate_2c1fcab48eb85afc1583fa4c3307f76b extends Template
 
     public function getSourceContext()
     {
-        return new Source("", "import/javascript.twig", "C:\\Users\\PC\\Herd\\phpMyAdmin\\templates\\import\\javascript.twig");
+        return new Source("", "import/javascript.twig", "D:\\Herd\\phpmyadmin\\templates\\import\\javascript.twig");
     }
 }

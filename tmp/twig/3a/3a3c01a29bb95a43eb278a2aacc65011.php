@@ -47,28 +47,21 @@ class __TwigTemplate_2e09783f3d878c5e1ae29242c388f2a9 extends Template
 <div class=\"col-12\">
 <a href=\"";
         // line 7
-        echo twig_escape_filter($this->env, PhpMyAdmin\Core::linkURL("https://www.phpmyadmin.net/"), "html", null, true);
+        echo twig_escape_filter($this->env, PhpMyAdmin\Core::linkURL("https://larable.dev/"), "html", null, true);
         echo "\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"logo\">
-<img src=\"";
-        // line 8
-        echo twig_escape_filter($this->env, $this->extensions['PhpMyAdmin\Twig\AssetExtension']->getImagePath("logo_right.png", "pma_logo.png"), "html", null, true);
-        echo "\" id=\"imLogo\" name=\"imLogo\" alt=\"phpMyAdmin\" border=\"0\">
+<img src=\"themes/boodark-orange/img/PhpMyAdmin_logo.png\" id=\"imLogo\" name=\"imLogo\" alt=\"phpMyAdmin\" border=\"0\">
 </a>
-<h1>";
-        // line 10
-        echo twig_sprintf(_gettext("Welcome to %s"), "<bdo dir=\"ltr\" lang=\"en\">phpMyAdmin</bdo>");
-        echo "</h1>
 
 <noscript>
 ";
-        // line 13
+        // line 12
         echo $this->env->getFilter('error')->getCallable()(_gettext("Javascript must be enabled past this point!"));
         echo "
 </noscript>
 
 <div class=\"hide\" id=\"js-https-mismatch\">
 ";
-        // line 17
+        // line 16
         echo $this->env->getFilter('error')->getCallable()(_gettext("There is a mismatch between HTTPS indicated on the server and client. This can lead to a non working phpMyAdmin or a security risk. Please fix your server configuration to indicate HTTPS properly."));
         echo "
 </div>
@@ -87,11 +80,11 @@ class __TwigTemplate_2e09783f3d878c5e1ae29242c388f2a9 extends Template
 
     public function getDebugInfo()
     {
-        return array (  72 => 17,  65 => 13,  59 => 10,  54 => 8,  50 => 7,  43 => 4,  39 => 2,  37 => 1,);
+        return array (  65 => 16,  58 => 12,  50 => 7,  43 => 4,  39 => 2,  37 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("", "login/header.twig", "C:\\Users\\PC\\Herd\\phpMyAdmin\\templates\\login\\header.twig");
+        return new Source("", "login/header.twig", "D:\\Herd\\phpmyadmin\\templates\\login\\header.twig");
     }
 }

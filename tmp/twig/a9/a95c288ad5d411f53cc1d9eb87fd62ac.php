@@ -264,6 +264,6 @@ echo _gettext("Action");
 
     public function getSourceContext()
     {
-        return new Source("", "database/structure/table_header.twig", "C:\\Users\\PC\\Herd\\phpMyAdmin\\templates\\database\\structure\\table_header.twig");
+        return new Source("", "database/structure/table_header.twig", "D:\\Herd\\phpmyadmin\\templates\\database\\structure\\table_header.twig");
     }
 }

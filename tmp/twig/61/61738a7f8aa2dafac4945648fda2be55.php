@@ -66,6 +66,6 @@ class __TwigTemplate_9bbdf16c18d442302893882ed5652c82 extends Template
 
     public function getSourceContext()
     {
-        return new Source("", "database/import/index.twig", "C:\\Users\\PC\\Herd\\phpMyAdmin\\templates\\database\\import\\index.twig");
+        return new Source("", "database/import/index.twig", "D:\\Herd\\phpmyadmin\\templates\\database\\import\\index.twig");
     }
 }

@@ -759,6 +759,6 @@ echo _gettext("Query results operations");
 
     public function getSourceContext()
     {
-        return new Source("", "display/results/table.twig", "C:\\Users\\PC\\Herd\\phpMyAdmin\\templates\\display\\results\\table.twig");
+        return new Source("", "display/results/table.twig", "D:\\Herd\\phpmyadmin\\templates\\display\\results\\table.twig");
     }
 }

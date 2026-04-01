@@ -67,6 +67,6 @@ class __TwigTemplate_82417e53475e07eb909bc003880f9426 extends Template
 
     public function getSourceContext()
     {
-        return new Source("", "config/form_display/group_header.twig", "C:\\Users\\PC\\Herd\\phpMyAdmin\\templates\\config\\form_display\\group_header.twig");
+        return new Source("", "config/form_display/group_header.twig", "D:\\Herd\\phpmyadmin\\templates\\config\\form_display\\group_header.twig");
     }
 }
