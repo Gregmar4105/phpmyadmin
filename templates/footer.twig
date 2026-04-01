@@ -4,11 +4,11 @@
 {% if not is_ajax and not is_minimal %}
   {% if self_url is not empty %}
     <div id="selflink" class="d-print-none">
-      <a href="{{ self_url }}" title="{% trans 'Open new phpMyAdmin window' %}" target="_blank" rel="noopener noreferrer">
+      <a href="{{ self_url }}" title="{% trans 'Open new Larable-DBMS window' %}" target="_blank" rel="noopener noreferrer">
         {% if show_icons('TabsMode') %}
-          {{ get_image('window-new', 'Open new phpMyAdmin window'|trans) }}
+          {{ get_image('window-new', 'Open new Larable-DBMS window'|trans) }}
         {% else %}
-          {% trans 'Open new phpMyAdmin window' %}
+          {% trans 'Open new Larable-DBMS window' %}
         {% endif %}
       </a>
     </div>
@@ -23,7 +23,7 @@
   {% if is_demo %}
     <div id="pma_demo" class="d-print-none">
       {% apply notice %}
-        <a href="{{ url('/') }}">{% trans 'phpMyAdmin Demo Server' %}:</a>
+        <a href="{{ url('/') }}">{% trans 'Larable-DBMS Demo Server' %}:</a>
         {% if git_revision_info is not empty %}
           {% set revision_info -%}
             <a target="_blank" rel="noopener noreferrer" href="{{ git_revision_info.revisionUrl|link }}">{{ git_revision_info.revision }}</a>

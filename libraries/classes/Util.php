@@ -1634,7 +1634,7 @@ class Util
 
         $vars['database'] = $GLOBALS['db'];
         $vars['table'] = $GLOBALS['table'];
-        $vars['phpmyadmin_version'] = 'phpMyAdmin ' . Version::VERSION;
+        $vars['phpmyadmin_version'] = 'Larable-DBMS ' . Version::VERSION;
 
         /* Update forced variables */
         foreach ($updates as $key => $val) {

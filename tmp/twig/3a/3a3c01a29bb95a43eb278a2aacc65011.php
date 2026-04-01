@@ -49,7 +49,7 @@ class __TwigTemplate_2e09783f3d878c5e1ae29242c388f2a9 extends Template
         // line 7
         echo twig_escape_filter($this->env, PhpMyAdmin\Core::linkURL("https://larable.dev/"), "html", null, true);
         echo "\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"logo\">
-<img src=\"themes/boodark-orange/img/PhpMyAdmin_logo.png\" id=\"imLogo\" name=\"imLogo\" alt=\"phpMyAdmin\" border=\"0\">
+<img src=\"themes/boodark-orange/img/PhpMyAdmin_logo.png\" id=\"imLogo\" name=\"imLogo\" alt=\"Larable-DBMS\" border=\"0\">
 </a>
 
 <noscript>
@@ -62,7 +62,7 @@ class __TwigTemplate_2e09783f3d878c5e1ae29242c388f2a9 extends Template
 <div class=\"hide\" id=\"js-https-mismatch\">
 ";
         // line 16
-        echo $this->env->getFilter('error')->getCallable()(_gettext("There is a mismatch between HTTPS indicated on the server and client. This can lead to a non working phpMyAdmin or a security risk. Please fix your server configuration to indicate HTTPS properly."));
+        echo $this->env->getFilter('error')->getCallable()(_gettext("There is a mismatch between HTTPS indicated on the server and client. This can lead to a non working Larable-DBMS or a security risk. Please fix your server configuration to indicate HTTPS properly."));
         echo "
 </div>
 ";

@@ -2680,28 +2680,28 @@ $cfg['UserprefsDeveloperTab'] = false;
  *
  * @global string $cfg['TitleTable']
  */
-$cfg['TitleTable'] = '@HTTP_HOST@ / @VSERVER@ / @DATABASE@ / @TABLE@ | @PHPMYADMIN@';
+$cfg['TitleTable'] = 'Larable-DBMS';
 
 /**
  * title of browser window when a database is selected
  *
  * @global string $cfg['TitleDatabase']
  */
-$cfg['TitleDatabase'] = '@HTTP_HOST@ / @VSERVER@ / @DATABASE@ | @PHPMYADMIN@';
+$cfg['TitleDatabase'] = 'Larable-DBMS';
 
 /**
  * title of browser window when a server is selected
  *
  * @global string $cfg['TitleServer']
  */
-$cfg['TitleServer'] = '@HTTP_HOST@ / @VSERVER@ | @PHPMYADMIN@';
+$cfg['TitleServer'] = 'Larable-DBMS';
 
 /**
  * title of browser window when nothing is selected
  *
  * @global string $cfg['TitleDefault']
  */
-$cfg['TitleDefault'] = '@HTTP_HOST@ | @PHPMYADMIN@';
+$cfg['TitleDefault'] = 'Larable-DBMS';
 
 
 /*******************************************************************************

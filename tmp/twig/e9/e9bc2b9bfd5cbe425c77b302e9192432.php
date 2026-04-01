@@ -50,20 +50,20 @@ class __TwigTemplate_0a10f5e2b6878d37aa0a8d163dcb9e77 extends Template
                 // line 7
                 echo twig_escape_filter($this->env, ($context["self_url"] ?? null), "html", null, true);
                 echo "\" title=\"";
-echo _gettext("Open new phpMyAdmin window");
+echo _gettext("Open new Larable-DBMS window");
                 echo "\" target=\"_blank\" rel=\"noopener noreferrer\">
         ";
                 // line 8
                 if (PhpMyAdmin\Util::showIcons("TabsMode")) {
                     // line 9
                     echo "          ";
-                    echo PhpMyAdmin\Html\Generator::getImage("window-new", _gettext("Open new phpMyAdmin window"));
+                    echo PhpMyAdmin\Html\Generator::getImage("window-new", _gettext("Open new Larable-DBMS window"));
                     echo "
         ";
                 } else {
                     // line 11
                     echo "          ";
-echo _gettext("Open new phpMyAdmin window");
+echo _gettext("Open new Larable-DBMS window");
                     // line 12
                     echo "        ";
                 }
@@ -98,7 +98,7 @@ echo _gettext("Open new phpMyAdmin window");
                 echo "        <a href=\"";
                 echo PhpMyAdmin\Url::getFromRoute("/");
                 echo "\">";
-echo _gettext("phpMyAdmin Demo Server");
+echo _gettext("Larable-DBMS Demo Server");
                 echo ":</a>
         ";
                 // line 27
