@@ -55,8 +55,8 @@ class __TwigTemplate_1607bf2c8b81ba8a2d6c479488806478 extends Template
         }
         // line 12
         echo "
-  <link rel=\"icon\" href=\"favicon.ico\" type=\"image/x-icon\">
-  <link rel=\"shortcut icon\" href=\"favicon.ico\" type=\"image/x-icon\">
+  <link rel=\"icon\" href=\"favicon.png\" type=\"image/png\">
+  <link rel=\"shortcut icon\" href=\"favicon.png\" type=\"image/png\">
   <link rel=\"stylesheet\" type=\"text/css\" href=\"";
         // line 15
         echo twig_escape_filter($this->env, ($context["theme_path"] ?? null), "html", null, true);

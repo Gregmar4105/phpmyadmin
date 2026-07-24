@@ -556,7 +556,7 @@ class Header
                     Util::expandUserString($tempTitle)
                 );
             } else {
-                $this->title = 'Larable-DBMS';
+                $this->title = 'Larable';
             }
         }
 

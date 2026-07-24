@@ -58,4 +58,10 @@ $cfg['Servers'][$i]['favorite'] = 'pma__favorite';
  * End of servers configuration
  */
 
+$cfg['ThemeDefault'] = 'boodark-orange';
+$cfg['TitleTable'] = 'Larable';
+$cfg['TitleDatabase'] = 'Larable';
+$cfg['TitleServer'] = 'Larable';
+$cfg['TitleDefault'] = 'Larable';
+
 ?>

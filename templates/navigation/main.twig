@@ -11,9 +11,9 @@
               <a href="{{ logo.link|default('#') }}"{{ logo.attributes|raw }}>
             {% endif %}
             {% if logo.source is not empty %}
-              <img id="imgpmalogo" src="{{ logo.source }}" alt="Larable-DBMS">
+              <img id="imgpmalogo" src="{{ logo.source }}" alt="Larable">
             {% else %}
-              <h1>Larable-DBMS</h1>
+              <h1>Larable</h1>
             {% endif %}
             {% if logo.has_link %}
               </a>
@@ -32,8 +32,8 @@
             </a>
           {% endif %}
 
-          <a href="{{ get_docu_link('index') }}" title="{% trans 'Larable-DBMS documentation' %}" target="_blank" rel="noopener noreferrer">
-            {{- get_image('b_docs', 'Larable-DBMS documentation'|trans) -}}
+          <a href="{{ get_docu_link('index') }}" title="{% trans 'Larable documentation' %}" target="_blank" rel="noopener noreferrer">
+            {{- get_image('b_docs', 'Larable documentation'|trans) -}}
           </a>
 
           <a href="{{ get_docu_url(is_mariadb) }}" title="{{ is_mariadb ? 'MariaDB Documentation'|trans : 'MySQL Documentation'|trans }}" target="_blank" rel="noopener noreferrer">

@@ -2680,28 +2680,28 @@ $cfg['UserprefsDeveloperTab'] = false;
  *
  * @global string $cfg['TitleTable']
  */
-$cfg['TitleTable'] = 'Larable-DBMS';
+$cfg['TitleTable'] = 'Larable';
 
 /**
  * title of browser window when a database is selected
  *
  * @global string $cfg['TitleDatabase']
  */
-$cfg['TitleDatabase'] = 'Larable-DBMS';
+$cfg['TitleDatabase'] = 'Larable';
 
 /**
  * title of browser window when a server is selected
  *
  * @global string $cfg['TitleServer']
  */
-$cfg['TitleServer'] = 'Larable-DBMS';
+$cfg['TitleServer'] = 'Larable';
 
 /**
  * title of browser window when nothing is selected
  *
  * @global string $cfg['TitleDefault']
  */
-$cfg['TitleDefault'] = 'Larable-DBMS';
+$cfg['TitleDefault'] = 'Larable';
 
 
 /*******************************************************************************
@@ -2722,7 +2722,7 @@ $cfg['ThemeManager'] = true;
  *
  * @global string $cfg['ThemeDefault']
  */
-$cfg['ThemeDefault'] = 'pmahomme';
+$cfg['ThemeDefault'] = 'boodark-orange';
 
 /**
  * allow different theme for each configured server

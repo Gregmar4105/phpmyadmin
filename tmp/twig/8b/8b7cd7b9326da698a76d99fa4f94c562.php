@@ -69,7 +69,7 @@ class __TwigTemplate_799a2f8921e902b62643984260c321a7 extends Template
                 echo "            <div class=\"card mt-4\">
               <div class=\"card-header\">
                 ";
-echo _gettext("Larable-DBMS Demo Server");
+echo _gettext("Larable Demo Server");
                 // line 19
                 echo "              </div>
               <div class=\"card-body\">
@@ -545,7 +545,7 @@ echo _gettext("Show PHP information");
         echo "
           <div class=\"card mt-4\">
             <div class=\"card-header\">
-              Larable-DBMS
+              Larable
             </div>
             <ul class=\"list-group list-group-flush\">
               <li id=\"li_pma_version\" class=\"list-group-item";
@@ -671,7 +671,7 @@ echo _gettext("License");
       <div class=\"modal-content\">
         <div class=\"modal-header\">
           <h5 class=\"modal-title\" id=\"themesModalLabel\">";
-echo _gettext("Larable-DBMS Themes");
+echo _gettext("Larable Themes");
             // line 295
             echo "</h5>
           <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"";

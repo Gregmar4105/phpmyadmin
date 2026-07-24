@@ -66,11 +66,11 @@ class __TwigTemplate_6e5542b0b95442b7c1d2a1696ba484fb extends Template
                     // line 14
                     echo "              <img id=\"imgpmalogo\" src=\"";
                     echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["logo"] ?? null), "source", [], "any", false, false, false, 14), "html", null, true);
-                    echo "\" alt=\"Larable-DBMS\">
+                    echo "\" alt=\"Larable\">
             ";
                 } else {
                     // line 16
-                    echo "              <h1>Larable-DBMS</h1>
+                    echo "              <h1>Larable</h1>
             ";
                 }
                 // line 18
@@ -119,10 +119,10 @@ echo _gettext("Home");
             // line 35
             echo PhpMyAdmin\Html\MySQLDocumentation::getDocumentationLink("index");
             echo "\" title=\"";
-echo _gettext("Larable-DBMS documentation");
+echo _gettext("Larable documentation");
             echo "\" target=\"_blank\" rel=\"noopener noreferrer\">";
             // line 36
-            echo PhpMyAdmin\Html\Generator::getImage("b_docs", _gettext("Larable-DBMS documentation"));
+            echo PhpMyAdmin\Html\Generator::getImage("b_docs", _gettext("Larable documentation"));
             // line 37
             echo "</a>
 
