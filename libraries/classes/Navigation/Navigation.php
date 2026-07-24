@@ -291,6 +291,10 @@ class Navigation
         global $theme;
 
         if ($theme instanceof Theme) {
+            if (@file_exists($theme->getFsPath() . 'img/larable_logo.png')) {
+                return $theme->getPath() . '/img/larable_logo.png';
+            }
+
             if (@file_exists($theme->getFsPath() . 'img/logo_left.png')) {
                 return $theme->getPath() . '/img/logo_left.png';
             }
