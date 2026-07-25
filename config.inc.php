@@ -69,10 +69,10 @@ $cfg['Servers'][$i]['extension'] = 'mysqli';
 /* Allow manual server entry on login */
 $cfg['AllowArbitraryServer'] = true;
 
-/* Allow cookies over HTTP & force session storage */
-$cfg['is_https'] = false;
+/* Pangolin Load Balancer & Cookie Configuration */
+$cfg['is_https'] = true;
 $cfg['SessionSavePath'] = sys_get_temp_dir();
-$cfg['CookieSecure'] = false;
+$cfg['CookieSecure'] = true;
 $cfg['CookieSameSite'] = 'Lax';
 
 /*
