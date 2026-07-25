@@ -69,6 +69,10 @@ $cfg['Servers'][$i]['extension'] = 'mysqli';
 /* Allow manual server entry on login */
 $cfg['AllowArbitraryServer'] = true;
 
+/* Allow cookies over HTTP */
+$cfg['CookieSecure'] = false;
+$cfg['CookieSameSite'] = 'Lax';
+
 /*
  * End of servers configuration
  */
