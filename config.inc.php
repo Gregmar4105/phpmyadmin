@@ -69,7 +69,9 @@ $cfg['Servers'][$i]['extension'] = 'mysqli';
 /* Allow manual server entry on login */
 $cfg['AllowArbitraryServer'] = true;
 
-/* Allow cookies over HTTP */
+/* Allow cookies over HTTP & force session storage */
+$cfg['is_https'] = false;
+$cfg['SessionSavePath'] = __DIR__ . '/tmp';
 $cfg['CookieSecure'] = false;
 $cfg['CookieSameSite'] = 'Lax';
 
