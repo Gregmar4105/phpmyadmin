@@ -71,7 +71,7 @@ $cfg['AllowArbitraryServer'] = true;
 
 /* Allow cookies over HTTP & force session storage */
 $cfg['is_https'] = false;
-$cfg['SessionSavePath'] = __DIR__ . '/tmp';
+$cfg['SessionSavePath'] = sys_get_temp_dir();
 $cfg['CookieSecure'] = false;
 $cfg['CookieSameSite'] = 'Lax';
 
