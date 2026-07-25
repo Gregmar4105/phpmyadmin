@@ -11,11 +11,9 @@ $cfg['blowfish_secret'] = 'xampp'; /* YOU SHOULD CHANGE THIS FOR A MORE SECURE C
 $i = 0;
 
 /*
- * First server (Local)
- */
+ * Local MySQL Server (Commented Out)
+ *
 $i++;
-
-/* Authentication type and info */
 $cfg['Servers'][$i]['verbose'] = 'Local MySQL';
 $cfg['Servers'][$i]['auth_type'] = 'cookie';
 $cfg['Servers'][$i]['user'] = 'root';
@@ -24,15 +22,12 @@ $cfg['Servers'][$i]['extension'] = 'mysqli';
 $cfg['Servers'][$i]['AllowNoPassword'] = false;
 $cfg['Lang'] = '';
 
-/* Bind to the localhost ipv4 address and tcp */
 $cfg['Servers'][$i]['host'] = '127.0.0.1';
 $cfg['Servers'][$i]['connect_type'] = 'tcp';
 
-/* User for advanced features */
 $cfg['Servers'][$i]['controluser'] = 'root';
 $cfg['Servers'][$i]['controlpass'] = 'root';
 
-/* Advanced phpMyAdmin features */
 $cfg['Servers'][$i]['pmadb'] = 'phpmyadmin';
 $cfg['Servers'][$i]['bookmarktable'] = 'pma__bookmark';
 $cfg['Servers'][$i]['relation'] = 'pma__relation';
@@ -54,6 +49,7 @@ $cfg['Servers'][$i]['central_columns'] = 'pma__central_columns';
 $cfg['Servers'][$i]['designer_settings'] = 'pma__designer_settings';
 $cfg['Servers'][$i]['export_templates'] = 'pma__export_templates';
 $cfg['Servers'][$i]['favorite'] = 'pma__favorite';
+*/
 
 /*
  * Second server (Remote Aiven MySQL)
