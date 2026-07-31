@@ -142,6 +142,6 @@ echo _gettext("Current server:");
 
     public function getSourceContext()
     {
-        return new Source("", "server/select/index.twig", "D:\\Herd\\phpmyadmin\\templates\\server\\select\\index.twig");
+        return new Source("", "server/select/index.twig", "C:\\Users\\Admin\\Herd\\phpmyadmin\\templates\\server\\select\\index.twig");
     }
 }

@@ -132,6 +132,6 @@ echo _gettext("no branch");
 
     public function getSourceContext()
     {
-        return new Source("", "home/git_info.twig", "D:\\Herd\\phpmyadmin\\templates\\home\\git_info.twig");
+        return new Source("", "home/git_info.twig", "C:\\Users\\Admin\\Herd\\phpmyadmin\\templates\\home\\git_info.twig");
     }
 }

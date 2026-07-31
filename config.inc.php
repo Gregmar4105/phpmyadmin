@@ -10,9 +10,7 @@ $cfg['blowfish_secret'] = 'xampp'; /* YOU SHOULD CHANGE THIS FOR A MORE SECURE C
  */
 $i = 0;
 
-/*
- * Local MySQL Server (Commented Out)
- *
+
 $i++;
 $cfg['Servers'][$i]['verbose'] = 'Local MySQL';
 $cfg['Servers'][$i]['auth_type'] = 'cookie';
@@ -49,7 +47,7 @@ $cfg['Servers'][$i]['central_columns'] = 'pma__central_columns';
 $cfg['Servers'][$i]['designer_settings'] = 'pma__designer_settings';
 $cfg['Servers'][$i]['export_templates'] = 'pma__export_templates';
 $cfg['Servers'][$i]['favorite'] = 'pma__favorite';
-*/
+
 
 /*
  * Second server (Remote Aiven MySQL)

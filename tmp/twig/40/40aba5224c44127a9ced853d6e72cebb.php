@@ -61,6 +61,6 @@ class __TwigTemplate_d74a4e6a4a2c0aadeece9ce766fa6377 extends Template
 
     public function getSourceContext()
     {
-        return new Source("", "login/footer.twig", "D:\\Herd\\phpmyadmin\\templates\\login\\footer.twig");
+        return new Source("", "login/footer.twig", "C:\\Users\\Admin\\Herd\\phpmyadmin\\templates\\login\\footer.twig");
     }
 }

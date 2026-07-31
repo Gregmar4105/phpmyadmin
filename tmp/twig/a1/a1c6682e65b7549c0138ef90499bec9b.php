@@ -77,6 +77,6 @@ echo _gettext("Close");
 
     public function getSourceContext()
     {
-        return new Source("", "modals/preview_sql_modal.twig", "D:\\Herd\\phpmyadmin\\templates\\modals\\preview_sql_modal.twig");
+        return new Source("", "modals/preview_sql_modal.twig", "C:\\Users\\Admin\\Herd\\phpmyadmin\\templates\\modals\\preview_sql_modal.twig");
     }
 }

@@ -78,6 +78,6 @@ class __TwigTemplate_14880b95268c1598ce37d71864fa41fa extends Template
 
     public function getSourceContext()
     {
-        return new Source("", "server/select/server_options.twig", "D:\\Herd\\phpmyadmin\\templates\\server\\select\\server_options.twig");
+        return new Source("", "server/select/server_options.twig", "C:\\Users\\Admin\\Herd\\phpmyadmin\\templates\\server\\select\\server_options.twig");
     }
 }
