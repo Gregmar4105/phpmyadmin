@@ -10,7 +10,6 @@ $cfg['blowfish_secret'] = 'xampp'; /* YOU SHOULD CHANGE THIS FOR A MORE SECURE C
  */
 $i = 0;
 
-
 $i++;
 $cfg['Servers'][$i]['verbose'] = 'Local MySQL';
 $cfg['Servers'][$i]['auth_type'] = 'cookie';
@@ -47,7 +46,7 @@ $cfg['Servers'][$i]['central_columns'] = 'pma__central_columns';
 $cfg['Servers'][$i]['designer_settings'] = 'pma__designer_settings';
 $cfg['Servers'][$i]['export_templates'] = 'pma__export_templates';
 $cfg['Servers'][$i]['favorite'] = 'pma__favorite';
-
+$cfg['Servers'][$i]['hide_db'] = '^(information_schema|mysql|performance_schema|sys)$';
 
 /*
  * Second server (Remote Aiven MySQL)
@@ -63,9 +62,10 @@ $cfg['Servers'][$i]['password'] = 'AVNS_3c6BireRDm5jncJM3ke';
 $cfg['Servers'][$i]['ssl'] = true;
 $cfg['Servers'][$i]['ssl_verify'] = false;
 $cfg['Servers'][$i]['extension'] = 'mysqli';
+$cfg['Servers'][$i]['hide_db'] = '^(information_schema|mysql|performance_schema|sys)$';
 
 /* Allow manual server entry on login */
-$cfg['AllowArbitraryServer'] = true;
+$cfg['AllowArbitraryServer'] = false;
 
 /* Pangolin Load Balancer & Cookie Configuration */
 $cfg['is_https'] = true;
