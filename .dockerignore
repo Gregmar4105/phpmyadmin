@@ -1,0 +1,27 @@
+# Git
+.git
+.gitignore
+
+# Environment files (never bake secrets into Docker images)
+.env
+.env.local
+.env.*.local
+
+# Temporary cache files
+tmp/twig/*
+tmp/cache/*
+
+# IDE and OS
+.idea
+.vscode
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Documentation and tests
+/test
+/doc
+CONTRIBUTING.md
+ChangeLog
+README

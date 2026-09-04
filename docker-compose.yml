@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  phpmyadmin:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: phpmyadmin-php83:latest
+    container_name: phpmyadmin
+    restart: unless-stopped
+    ports:
+      - "${PORT:-8080}:80"
+    environment:
+      # Cookie authentication secret (32+ characters)
+      - PMA_BLOWFISH_SECRET=${PMA_BLOWFISH_SECRET:-xampp}
+      - PMA_ARBITRARY=${PMA_ARBITRARY:-false}
+      - PMA_IS_HTTPS=${PMA_IS_HTTPS:-true}
+      - PMA_COOKIE_SECURE=${PMA_COOKIE_SECURE:-true}
+      - PMA_COOKIE_SAMESITE=${PMA_COOKIE_SAMESITE:-Lax}
+      - PMA_THEME=${PMA_THEME:-boodark-orange}
+      - PMA_TITLE=${PMA_TITLE:-Larable}
+
+      # Server 1 Configuration
+      - SERVER1_ENABLE=${SERVER1_ENABLE:-true}
+      - SERVER1_VERBOSE=${SERVER1_VERBOSE:-Local MySQL}
+      - SERVER1_HOST=${SERVER1_HOST:-127.0.0.1}
+      - SERVER1_PORT=${SERVER1_PORT:-3306}
+      - SERVER1_AUTH_TYPE=${SERVER1_AUTH_TYPE:-cookie}
+      - SERVER1_USER=${SERVER1_USER:-root}
+      - SERVER1_PASSWORD=${SERVER1_PASSWORD:-root}
+      - SERVER1_ALLOW_NO_PASSWORD=${SERVER1_ALLOW_NO_PASSWORD:-false}
+      - SERVER1_CONNECT_TYPE=${SERVER1_CONNECT_TYPE:-tcp}
+      - SERVER1_SSL=${SERVER1_SSL:-false}
+      - SERVER1_SSL_VERIFY=${SERVER1_SSL_VERIFY:-false}
+      - SERVER1_HIDE_DB=${SERVER1_HIDE_DB:-^(information_schema|mysql|performance_schema|sys)$}
+      - SERVER1_PMADB=${SERVER1_PMADB:-phpmyadmin}
+      - SERVER1_CONTROLUSER=${SERVER1_CONTROLUSER:-root}
+      - SERVER1_CONTROLPASS=${SERVER1_CONTROLPASS:-root}
+
+      # Server 2 Configuration (Remote / Aiven)
+      - SERVER2_ENABLE=${SERVER2_ENABLE:-true}
+      - SERVER2_VERBOSE=${SERVER2_VERBOSE:-Larable Remote MySQL (Aiven)}
+      - SERVER2_HOST=${SERVER2_HOST:-larable-mysql-service-larablenetwork-2db5.f.aivencloud.com}
+      - SERVER2_PORT=${SERVER2_PORT:-20707}
+      - SERVER2_AUTH_TYPE=${SERVER2_AUTH_TYPE:-cookie}
+      - SERVER2_USER=${SERVER2_USER:-avnadmin}
+      - SERVER2_PASSWORD=${SERVER2_PASSWORD:-AVNS_3c6BireRDm5jncJM3ke}
+      - SERVER2_CONNECT_TYPE=${SERVER2_CONNECT_TYPE:-tcp}
+      - SERVER2_SSL=${SERVER2_SSL:-true}
+      - SERVER2_SSL_VERIFY=${SERVER2_SSL_VERIFY:-false}
+      - SERVER2_HIDE_DB=${SERVER2_HIDE_DB:-^(information_schema|mysql|performance_schema|sys)$}
