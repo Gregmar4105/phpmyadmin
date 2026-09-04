@@ -1,7 +1,7 @@
 <?php
 /**
  * phpMyAdmin configuration with dynamic .env and environment variable support.
- * Compatible with local environments (Laragon/Herd/XAMPP) and Coolify/Docker deployments.
+ * Compatible with local environments (Laragon/Herd/XAMPP) and Coolify/Docker/Cloudflare deployments.
  */
 
 // -----------------------------------------------------------------------------
@@ -111,6 +111,44 @@ if (!function_exists('pma_env_int')) {
 
 // Load .env file from project root if present
 pma_load_env(__DIR__ . '/.env');
+
+// -----------------------------------------------------------------------------
+// Reverse Proxy & HTTPS Detection (Cloudflare Tunnel, Coolify/Traefik, Nginx)
+// -----------------------------------------------------------------------------
+$isHttpsProxy = (
+    (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower($_SERVER['HTTP_X_FORWARDED_PROTO']) === 'https') ||
+    (!empty($_SERVER['HTTP_CF_VISITOR']) && strpos($_SERVER['HTTP_CF_VISITOR'], 'https') !== false) ||
+    (!empty($_SERVER['HTTP_X_FORWARDED_SSL']) && strtolower($_SERVER['HTTP_X_FORWARDED_SSL']) === 'on') ||
+    (isset($_SERVER['HTTP_FRONT_END_HTTPS']) && strtolower($_SERVER['HTTP_FRONT_END_HTTPS']) === 'on') ||
+    pma_env_bool(['PMA_IS_HTTPS', 'IS_HTTPS'], false)
+);
+
+if ($isHttpsProxy) {
+    $_SERVER['HTTPS'] = 'on';
+    $_SERVER['SERVER_PORT'] = '443';
+}
+$cfg['is_https'] = $isHttpsProxy;
+$cfg['CookieSecure'] = $isHttpsProxy;
+
+// Force HTTPS redirect if requested and client reached via plain HTTP
+if (
+    pma_env_bool(['PMA_FORCE_SSL', 'FORCE_SSL'], false) &&
+    !$isHttpsProxy &&
+    (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] === 'off') &&
+    !empty($_SERVER['HTTP_HOST'])
+) {
+    header('Location: https://' . $_SERVER['HTTP_HOST'] . ($_SERVER['REQUEST_URI'] ?? '/'), true, 301);
+    exit;
+}
+
+// Set Absolute URI for consistent cookies, form actions, and redirects
+$pmaAbsoluteUri = pma_env(['PMA_ABSOLUTE_URI', 'PMA_URL']);
+if (!empty($pmaAbsoluteUri)) {
+    $cfg['PmaAbsoluteUri'] = rtrim($pmaAbsoluteUri, '/') . '/';
+} elseif (!empty($_SERVER['HTTP_HOST'])) {
+    $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+    $cfg['PmaAbsoluteUri'] = $scheme . '://' . $_SERVER['HTTP_HOST'] . '/';
+}
 
 // -----------------------------------------------------------------------------
 // Cookie Encryption Secret (Blowfish Secret)
@@ -230,16 +268,14 @@ if (!empty($pmaHosts)) {
 }
 
 // -----------------------------------------------------------------------------
-// Security & Reverse Proxy (Coolify / Pangolin / SSL)
+// Security & Reverse Proxy Settings
 // -----------------------------------------------------------------------------
 // Allow manual server entry on login screen
 $cfg['AllowArbitraryServer'] = pma_env_bool(['PMA_ARBITRARY', 'ALLOW_ARBITRARY_SERVER'], false);
 
-// HTTPS and Cookie Configuration
-$cfg['is_https'] = pma_env_bool(['PMA_IS_HTTPS', 'IS_HTTPS'], true);
+// Session and Cookie configuration
 $sessionSavePath = pma_env(['PMA_SESSION_SAVE_PATH', 'SESSION_SAVE_PATH']);
 $cfg['SessionSavePath'] = !empty($sessionSavePath) ? $sessionSavePath : sys_get_temp_dir();
-$cfg['CookieSecure'] = pma_env_bool(['PMA_COOKIE_SECURE', 'COOKIE_SECURE'], true);
 $cfg['CookieSameSite'] = pma_env(['PMA_COOKIE_SAMESITE', 'COOKIE_SAMESITE'], 'Lax');
 
 // Temporary directory for Twig and uploads

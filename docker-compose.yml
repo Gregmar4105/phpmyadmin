@@ -15,7 +15,7 @@ services:
       - PMA_BLOWFISH_SECRET=${PMA_BLOWFISH_SECRET:-xampp}
       - PMA_ARBITRARY=${PMA_ARBITRARY:-false}
       - PMA_IS_HTTPS=${PMA_IS_HTTPS:-true}
-      - PMA_COOKIE_SECURE=${PMA_COOKIE_SECURE:-true}
+      - PMA_ABSOLUTE_URI=${PMA_ABSOLUTE_URI:-https://vince-larable-dbadmin.larable.dev/}
       - PMA_COOKIE_SAMESITE=${PMA_COOKIE_SAMESITE:-Lax}
       - PMA_THEME=${PMA_THEME:-boodark-orange}
       - PMA_TITLE=${PMA_TITLE:-Larable}

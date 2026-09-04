@@ -1,6 +1,6 @@
 # ==========================================
 # phpMyAdmin Production Dockerfile (PHP 8.3)
-# Optimized for Coolify Deployment
+# Optimized for Coolify Deployment & Cloudflare Tunnels
 # ==========================================
 
 FROM php:8.3-apache
@@ -46,8 +46,17 @@ RUN { \
     echo 'opcache.revalidate_freq = 2'; \
 } > "$PHP_INI_DIR/conf.d/phpmyadmin-custom.ini"
 
-# Enable Apache modules
-RUN a2enmod rewrite headers
+# Enable Apache modules: rewrite, headers, and remoteip
+RUN a2enmod rewrite headers remoteip
+
+# Configure Apache for Reverse Proxies (Cloudflare Tunnel, Traefik, Coolify)
+RUN { \
+    echo 'RemoteIPHeader X-Forwarded-For'; \
+    echo 'RemoteIPInternalProxy 10.0.0.0/8 172.16.0.0/12 192.168.0.0/16 127.0.0.1'; \
+    echo 'SetEnvIf X-Forwarded-Proto "^https$" HTTPS=on'; \
+    echo 'SetEnvIf CF-Visitor ".*\"scheme\":\"https\".*" HTTPS=on'; \
+} > /etc/apache2/conf-available/remoteip.conf \
+    && a2enconf remoteip
 
 # Configure Apache ServerName to suppress warning
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
