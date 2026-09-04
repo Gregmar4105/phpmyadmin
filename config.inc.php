@@ -120,7 +120,7 @@ $isHttpsProxy = (
     (!empty($_SERVER['HTTP_CF_VISITOR']) && strpos($_SERVER['HTTP_CF_VISITOR'], 'https') !== false) ||
     (!empty($_SERVER['HTTP_X_FORWARDED_SSL']) && strtolower($_SERVER['HTTP_X_FORWARDED_SSL']) === 'on') ||
     (isset($_SERVER['HTTP_FRONT_END_HTTPS']) && strtolower($_SERVER['HTTP_FRONT_END_HTTPS']) === 'on') ||
-    pma_env_bool(['PMA_IS_HTTPS', 'IS_HTTPS'], false)
+    pma_env_bool(['PMA_IS_HTTPS', 'IS_HTTPS'], true)
 );
 
 if ($isHttpsProxy) {
@@ -129,6 +129,14 @@ if ($isHttpsProxy) {
 }
 $cfg['is_https'] = $isHttpsProxy;
 $cfg['CookieSecure'] = $isHttpsProxy;
+
+// Synchronize session cookie names between phpMyAdmin and phpMyAdmin_https
+if (isset($_COOKIE['phpMyAdmin_https']) && !isset($_COOKIE['phpMyAdmin'])) {
+    $_COOKIE['phpMyAdmin'] = $_COOKIE['phpMyAdmin_https'];
+}
+if (isset($_COOKIE['phpMyAdmin']) && !isset($_COOKIE['phpMyAdmin_https'])) {
+    $_COOKIE['phpMyAdmin_https'] = $_COOKIE['phpMyAdmin'];
+}
 
 // Force HTTPS redirect if requested and client reached via plain HTTP
 if (
@@ -146,9 +154,15 @@ $pmaAbsoluteUri = pma_env(['PMA_ABSOLUTE_URI', 'PMA_URL']);
 if (!empty($pmaAbsoluteUri)) {
     $cfg['PmaAbsoluteUri'] = rtrim($pmaAbsoluteUri, '/') . '/';
 } elseif (!empty($_SERVER['HTTP_HOST'])) {
-    $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
-    $cfg['PmaAbsoluteUri'] = $scheme . '://' . $_SERVER['HTTP_HOST'] . '/';
+    $scheme = $isHttpsProxy ? 'https' : ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http');
+    $host = $_SERVER['HTTP_X_FORWARDED_HOST'] ?? $_SERVER['HTTP_HOST'];
+    $cfg['PmaAbsoluteUri'] = $scheme . '://' . $host . '/';
+} else {
+    $cfg['PmaAbsoluteUri'] = 'https://vince-larable-dbadmin.larable.dev/';
 }
+
+// Whitelist Cloudflare Insights / Analytics in Content Security Policy
+$cfg['CSPAllow'] = 'static.cloudflareinsights.com';
 
 // -----------------------------------------------------------------------------
 // Cookie Encryption Secret (Blowfish Secret)
