@@ -61,6 +61,16 @@ RUN { \
 # Configure Apache ServerName to suppress warning
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
+# Generate self-signed SSL certificate and enable Apache SSL on port 443
+RUN openssl req -x509 -nodes -days 3650 -newkey rsa:2048 \
+    -keyout /etc/ssl/private/apache-selfsigned.key \
+    -out /etc/ssl/certs/apache-selfsigned.crt \
+    -subj "/CN=localhost" \
+    && a2enmod ssl \
+    && sed -i 's|/etc/ssl/certs/ssl-cert-snakeoil.pem|/etc/ssl/certs/apache-selfsigned.crt|g' /etc/apache2/sites-available/default-ssl.conf \
+    && sed -i 's|/etc/ssl/private/ssl-cert-snakeoil.key|/etc/ssl/private/apache-selfsigned.key|g' /etc/apache2/sites-available/default-ssl.conf \
+    && a2ensite default-ssl
+
 # Set working directory
 WORKDIR /var/www/html
 
@@ -72,8 +82,8 @@ RUN mkdir -p /var/www/html/tmp/twig \
     && chown -R www-data:www-data /var/www/html \
     && chmod -R 775 /var/www/html/tmp
 
-# Expose standard HTTP port (Coolify defaults to port 80)
-EXPOSE 80
+# Expose HTTP and HTTPS ports
+EXPOSE 80 443
 
 # Apache runs in foreground
 CMD ["apache2-foreground"]

@@ -10,6 +10,7 @@ services:
     restart: unless-stopped
     ports:
       - "${PORT:-8080}:80"
+      - "${SSL_PORT:-8443}:443"
     environment:
       # Cookie authentication secret (32+ characters)
       - PMA_BLOWFISH_SECRET=${PMA_BLOWFISH_SECRET:-xampp}
