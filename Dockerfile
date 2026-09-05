@@ -78,7 +78,7 @@ WORKDIR /var/www/html
 COPY . /var/www/html
 
 # Ensure tmp directory exists with write permissions for Apache
-RUN mkdir -p /var/www/html/tmp/twig \
+RUN mkdir -p /var/www/html/tmp/twig /var/www/html/tmp/sessions \
     && chown -R www-data:www-data /var/www/html \
     && chmod -R 775 /var/www/html/tmp
 

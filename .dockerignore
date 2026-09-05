@@ -10,6 +10,7 @@
 # Temporary cache files
 tmp/twig/*
 tmp/cache/*
+tmp/sessions/*
 
 # IDE and OS
 .idea

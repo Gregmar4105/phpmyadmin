@@ -8,6 +8,8 @@ tmp/twig/*
 !tmp/twig/.gitkeep
 tmp/cache/*
 !tmp/cache/.gitkeep
+tmp/sessions/*
+!tmp/sessions/.gitkeep
 
 # IDE and OS files
 .idea/

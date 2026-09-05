@@ -131,11 +131,12 @@ $cfg['is_https'] = $isHttpsProxy;
 $cfg['CookieSecure'] = $isHttpsProxy;
 
 // Synchronize session cookie names between phpMyAdmin and phpMyAdmin_https
-if (isset($_COOKIE['phpMyAdmin_https']) && !isset($_COOKIE['phpMyAdmin'])) {
+if ($isHttpsProxy && isset($_COOKIE['phpMyAdmin_https'])) {
     $_COOKIE['phpMyAdmin'] = $_COOKIE['phpMyAdmin_https'];
-}
-if (isset($_COOKIE['phpMyAdmin']) && !isset($_COOKIE['phpMyAdmin_https'])) {
+} elseif (isset($_COOKIE['phpMyAdmin']) && !isset($_COOKIE['phpMyAdmin_https'])) {
     $_COOKIE['phpMyAdmin_https'] = $_COOKIE['phpMyAdmin'];
+} elseif (isset($_COOKIE['phpMyAdmin_https']) && !isset($_COOKIE['phpMyAdmin'])) {
+    $_COOKIE['phpMyAdmin'] = $_COOKIE['phpMyAdmin_https'];
 }
 
 // Force HTTPS redirect if requested and client reached via plain HTTP
@@ -284,7 +285,16 @@ $cfg['AllowArbitraryServer'] = pma_env_bool(['PMA_ARBITRARY', 'ALLOW_ARBITRARY_S
 
 // Session and Cookie configuration
 $sessionSavePath = pma_env(['PMA_SESSION_SAVE_PATH', 'SESSION_SAVE_PATH']);
-$cfg['SessionSavePath'] = !empty($sessionSavePath) ? $sessionSavePath : sys_get_temp_dir();
+if (empty($sessionSavePath)) {
+    $defaultSessionsDir = __DIR__ . '/tmp/sessions';
+    if (!is_dir($defaultSessionsDir)) {
+        @mkdir($defaultSessionsDir, 0775, true);
+    }
+    $sessionSavePath = is_dir($defaultSessionsDir) && is_writable($defaultSessionsDir)
+        ? $defaultSessionsDir
+        : sys_get_temp_dir();
+}
+$cfg['SessionSavePath'] = $sessionSavePath;
 $cfg['CookieSameSite'] = pma_env(['PMA_COOKIE_SAMESITE', 'COOKIE_SAMESITE'], 'Lax');
 
 // Temporary directory for Twig and uploads
