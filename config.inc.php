@@ -252,25 +252,20 @@ if (!empty($pmaHosts)) {
         }
     }
 
-    // Server 2 (Remote / Aiven / Secondary Database)
-    $server2Host = pma_env(
-        ['SERVER2_HOST', 'DB2_HOST'],
-        'larable-mysql-service-larablenetwork-2db5.f.aivencloud.com'
-    );
-    $server2Enable = pma_env_bool(
-        ['SERVER2_ENABLE', 'ENABLE_SERVER_2'],
-        !empty($server2Host)
-    );
+    // Server 2 (Remote / Aiven / Secondary Database) - Optional
+    // Only enabled if SERVER2_HOST (or DB2_HOST) is explicitly defined in .env or environment
+    $server2Host = pma_env(['SERVER2_HOST', 'DB2_HOST'], null);
+    $server2Enable = !empty($server2Host) && pma_env_bool(['SERVER2_ENABLE', 'ENABLE_SERVER_2'], true);
 
     if ($server2Enable && !empty($server2Host)) {
         $i++;
         $cfg['Servers'][$i]['verbose'] = pma_env(['SERVER2_VERBOSE', 'DB2_VERBOSE'], 'Larable Remote MySQL (Aiven)');
         $cfg['Servers'][$i]['host'] = $server2Host;
-        $cfg['Servers'][$i]['port'] = pma_env_int(['SERVER2_PORT', 'DB2_PORT'], 20707);
+        $cfg['Servers'][$i]['port'] = pma_env_int(['SERVER2_PORT', 'DB2_PORT'], 3306);
         $cfg['Servers'][$i]['connect_type'] = pma_env('SERVER2_CONNECT_TYPE', 'tcp');
         $cfg['Servers'][$i]['auth_type'] = pma_env(['SERVER2_AUTH_TYPE', 'DB2_AUTH_TYPE'], 'cookie');
-        $cfg['Servers'][$i]['user'] = pma_env(['SERVER2_USER', 'DB2_USER'], 'avnadmin');
-        $cfg['Servers'][$i]['password'] = pma_env(['SERVER2_PASSWORD', 'DB2_PASSWORD'], 'AVNS_3c6BireRDm5jncJM3ke');
+        $cfg['Servers'][$i]['user'] = pma_env(['SERVER2_USER', 'DB2_USER'], '');
+        $cfg['Servers'][$i]['password'] = pma_env(['SERVER2_PASSWORD', 'DB2_PASSWORD'], '');
         $cfg['Servers'][$i]['ssl'] = pma_env_bool(['SERVER2_SSL', 'DB2_SSL'], true);
         $cfg['Servers'][$i]['ssl_verify'] = pma_env_bool(['SERVER2_SSL_VERIFY', 'DB2_SSL_VERIFY'], false);
         $cfg['Servers'][$i]['extension'] = 'mysqli';

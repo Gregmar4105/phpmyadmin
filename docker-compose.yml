@@ -38,14 +38,14 @@ services:
       - SERVER1_CONTROLUSER=${SERVER1_CONTROLUSER:-root}
       - SERVER1_CONTROLPASS=${SERVER1_CONTROLPASS:-root}
 
-      # Server 2 Configuration (Remote / Aiven)
-      - SERVER2_ENABLE=${SERVER2_ENABLE:-true}
+      # Server 2 Configuration (Optional: Remote / Aiven) - Only enabled if SERVER2_HOST is defined in .env
+      - SERVER2_ENABLE=${SERVER2_ENABLE:-false}
       - SERVER2_VERBOSE=${SERVER2_VERBOSE:-Larable Remote MySQL (Aiven)}
-      - SERVER2_HOST=${SERVER2_HOST:-larable-mysql-service-larablenetwork-2db5.f.aivencloud.com}
+      - SERVER2_HOST=${SERVER2_HOST:-}
       - SERVER2_PORT=${SERVER2_PORT:-20707}
       - SERVER2_AUTH_TYPE=${SERVER2_AUTH_TYPE:-cookie}
       - SERVER2_USER=${SERVER2_USER:-avnadmin}
-      - SERVER2_PASSWORD=${SERVER2_PASSWORD:-AVNS_3c6BireRDm5jncJM3ke}
+      - SERVER2_PASSWORD=${SERVER2_PASSWORD:-}
       - SERVER2_CONNECT_TYPE=${SERVER2_CONNECT_TYPE:-tcp}
       - SERVER2_SSL=${SERVER2_SSL:-true}
       - SERVER2_SSL_VERIFY=${SERVER2_SSL_VERIFY:-false}
